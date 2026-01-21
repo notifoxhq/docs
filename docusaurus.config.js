@@ -27,8 +27,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'notifox', // Usually your GitHub org/user name.
-  projectName: 'notifox-docs', // Usually your repo name.
+  organizationName: 'notifoxhq', // Usually your GitHub org/user name.
+  projectName: 'docs', // Usually your repo name.
 
   onBrokenLinks: 'ignore',
 
@@ -47,10 +47,11 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/notifox/notifox-docs/tree/main/',
+          // Edit button configuration - links to GitHub for editing pages
+          editUrl: 'https://github.com/notifoxhq/docs/tree/main/',
+          // Show git history information (last updated date and author)
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
@@ -58,10 +59,11 @@ const config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/notifox/notifox-docs/tree/main/',
+          // Edit button configuration - links to GitHub for editing blog posts
+          editUrl: 'https://github.com/notifoxhq/docs/tree/main/',
+          // Show git history information (last updated date and author)
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
