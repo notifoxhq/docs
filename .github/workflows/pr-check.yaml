@@ -1,0 +1,42 @@
+name: PR Build Check
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        # Checkout only the PR branch, not the entire history (faster and safer)
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build docs
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "build" ] || [ -z "$(ls -A build)" ]; then
+            echo "❌ Error: Build directory is empty or missing"
+            exit 1
+          fi
+          echo "✅ Build successful - $(du -sh build | cut -f1) generated"
+          echo "📦 Build contains $(find build -type f | wc -l) files"
