@@ -1,0 +1,8 @@
+title = "gitleaks config"
+
+[allowlist]
+description = "Allowlist for documentation files with example tokens"
+paths = [
+  '''docs/.*\.md''',
+  '''blog/.*\.md''',
+]
