@@ -1,3 +1,5 @@
+[![Build and Deploy Docs](https://github.com/notifoxhq/docs/actions/workflows/docs.yaml/badge.svg)](https://github.com/notifoxhq/docs/actions/workflows/docs.yaml)
+
 # Notifox Documentation
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
