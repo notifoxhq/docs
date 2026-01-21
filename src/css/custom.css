@@ -1,0 +1,78 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #dd6324;
+  --ifm-color-primary-dark: #c4561f;
+  --ifm-color-primary-darker: #b14f1c;
+  --ifm-color-primary-darkest: #924118;
+  --ifm-color-primary-light: #e6733d;
+  --ifm-color-primary-lighter: #ef8456;
+  --ifm-color-primary-lightest: #f59f7a;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(221, 99, 36, 0.1);
+  --ifm-link-color: #dd6324;
+  --ifm-link-hover-color: #c4561f;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #e6733d;
+  --ifm-color-primary-dark: #dd6324;
+  --ifm-color-primary-darker: #c4561f;
+  --ifm-color-primary-darkest: #b14f1c;
+  --ifm-color-primary-light: #ef8456;
+  --ifm-color-primary-lighter: #f59f7a;
+  --ifm-color-primary-lightest: #f8b599;
+  --docusaurus-highlighted-code-line-bg: rgba(221, 99, 36, 0.2);
+  --ifm-link-color: #ef8456;
+  --ifm-link-hover-color: #f59f7a;
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  --ifm-color-content: #f1f5f9;
+  --ifm-color-content-secondary: #cbd5e1;
+  --ifm-navbar-background-color: #0f172a;
+  --ifm-footer-background-color: #0f172a;
+}
+
+/* Override homepage to be light */
+[data-theme='dark'] .hero {
+  --ifm-background-color: #ffffff;
+  --ifm-color-content: #000000;
+  --ifm-color-content-secondary: #666666;
+}
+
+[data-theme='dark'] .hero .hero__title {
+  color: #000000;
+}
+
+[data-theme='dark'] .hero .hero__subtitle {
+  color: #666666;
+}
+
+[data-theme='dark'] .hero .button {
+  background-color: #dd6324;
+  color: #ffffff;
+}
+
+[data-theme='dark'] .hero .button:hover {
+  background-color: #c4561f;
+}
+
+/* Keep homepage features light */
+[data-theme='dark'] .features {
+  --ifm-background-color: #ffffff;
+  --ifm-color-content: #000000;
+}
+
+[data-theme='dark'] .features h3 {
+  color: #000000;
+}
+
+[data-theme='dark'] .features p {
+  color: #666666;
+}
