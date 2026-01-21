@@ -23,17 +23,6 @@ jobs:
           cache: 'npm'
           cache-dependency-path: 'package-lock.json'
 
-      - name: Install AWS CLI
-        run: |
-          # Download AWS CLI with checksum verification for security
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip.sig" -o "awscliv2.zip.sig"
-          # Note: In production, verify GPG signature. For now, verify checksum.
-          unzip -q awscliv2.zip
-          sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli
-          aws --version
-          rm -rf awscliv2.zip awscliv2.zip.sig aws
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
