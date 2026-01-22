@@ -111,7 +111,7 @@ const config = {
             position: 'right',
           },
           {
-            href: 'https://github.com/notifox/notifox',
+            href: 'https://github.com/notifoxhq',
             label: 'GitHub',
             position: 'right',
           },
@@ -167,7 +167,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/notifox/notifox',
+                href: 'https://github.com/notifoxhq',
               },
             ],
           },
