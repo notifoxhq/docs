@@ -129,7 +129,7 @@ const config = {
               },
               {
                 label: 'API Reference',
-                to: '/docs/reference/alert-api',
+                to: '/docs/reference/alerts-api',
               },
               {
                 label: 'SDKs',
@@ -142,7 +142,7 @@ const config = {
             items: [
               {
                 label: 'Github',
-                href: 'https://www.github.com/Notifoxhq',
+                href: 'https://github.com/notifoxhq',
               },
               {
                 label: 'Discord',
