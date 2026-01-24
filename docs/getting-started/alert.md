@@ -120,15 +120,23 @@ If you're using Python or Go, you can use the Notifox SDKs for a simpler experie
 ### Python
 
 ```python
-from notifox import NotifoxClient
+import notifox
 
-client = NotifoxClient(api_key="your_api_token")
+client = notifox.NotifoxClient(api_key="your_api_token")
 
 # Send SMS
-client.send_alert(audience="joe", alert="Server is down!", channel="sms")
+response = client.send_alert(
+    audience="joe",
+    alert="Server is down!",
+    channel=notifox.SMS
+)
 
 # Send Email
-client.send_alert(audience="joe", alert="Detailed error report...", channel="email")
+response = client.send_alert(
+    audience="joe",
+    alert="Detailed error report...",
+    channel=notifox.Email
+)
 ```
 
 ### Go
@@ -145,11 +153,15 @@ func main() {
     client, _ := notifox.NewClientFromEnv() // Reads from NOTIFOX_API_KEY
     ctx := context.Background()
     
-    // Send SMS
-    client.SendAlert(ctx, "joe", "Server is down!", notifox.ChannelSMS)
+    // Send SMS (simpler method - defaults to SMS)
+    resp, _ := client.SendAlert(ctx, "joe", "Server is down!")
     
-    // Send Email
-    client.SendAlert(ctx, "joe", "Detailed error report...", notifox.ChannelEmail)
+    // Send Email (requires SendAlertWithOptions to specify channel)
+    resp, _ := client.SendAlertWithOptions(ctx, notifox.AlertRequest{
+        Audience: "joe",
+        Alert:    "Detailed error report...",
+        Channel:  notifox.Email,
+    })
 }
 ```
 
