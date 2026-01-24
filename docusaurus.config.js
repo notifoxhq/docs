@@ -88,6 +88,79 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/notifox-social-card.jpg',
+      metadata: [
+        {
+          name: 'description',
+          content: 'Notifox documentation - Send SMS and email alerts with a simple API. Developer-focused notification service for monitoring, alerts, and system notifications.',
+        },
+        {
+          name: 'keywords',
+          content: 'SMS alerts, email notifications, API, notifications, alerts, monitoring, developer tools, SMS API, email API, notification service, Notifox',
+        },
+        {
+          name: 'author',
+          content: 'Notifox',
+        },
+        {
+          name: 'contact',
+          content: 'support@notifox.com',
+        },
+        // Open Graph / Facebook
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          property: 'og:title',
+          content: 'Notifox Documentation - SMS and Email Alerts API',
+        },
+        {
+          property: 'og:description',
+          content: 'Send SMS and email alerts with a simple API. Developer-focused notification service for monitoring, alerts, and system notifications.',
+        },
+        {
+          property: 'og:image',
+          content: 'https://docs.notifox.com/img/notifox-social-card.jpg',
+        },
+        {
+          property: 'og:url',
+          content: 'https://docs.notifox.com',
+        },
+        {
+          property: 'og:site_name',
+          content: 'Notifox Documentation',
+        },
+        // Twitter Card
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Notifox Documentation - SMS and Email Alerts API',
+        },
+        {
+          name: 'twitter:description',
+          content: 'Send SMS and email alerts with a simple API. Developer-focused notification service for monitoring, alerts, and system notifications.',
+        },
+        {
+          name: 'twitter:image',
+          content: 'https://docs.notifox.com/img/notifox-social-card.jpg',
+        },
+        // Additional meta tags
+        {
+          name: 'application-name',
+          content: 'Notifox',
+        },
+        {
+          name: 'apple-mobile-web-app-title',
+          content: 'Notifox Docs',
+        },
+        {
+          name: 'theme-color',
+          content: '#25c2a0',
+        },
+      ],
       colorMode: {
         respectPrefersColorScheme: true,
       },
