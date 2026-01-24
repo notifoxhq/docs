@@ -6,6 +6,9 @@ sidebar_position: 3
 
 Python SDK for [Notifox](https://notifox.com).
 
+**Package:** [notifox on PyPI](https://pypi.org/project/notifox/)
+**Version:** v0.1.4+
+
 ## Installation
 
 ```bash
@@ -95,6 +98,8 @@ try:
     print(f"Alert sent! Message ID: {response.get('message_id')}")
 except notifox.NotifoxAuthenticationError:
     print("Authentication failed. Check your API key.")
+except notifox.NotifoxInsufficientBalanceError as e:
+    print(f"Insufficient balance: {e.response_text}")
 except notifox.NotifoxRateLimitError:
     print("Rate limit exceeded. Please wait before sending more alerts.")
 except notifox.NotifoxAPIError as e:
@@ -109,6 +114,7 @@ except notifox.NotifoxConnectionError as e:
 |-----------|-------------|
 | `NotifoxError` | Base exception |
 | `NotifoxAuthenticationError` | Authentication failed (401/403) |
+| `NotifoxInsufficientBalanceError` | Insufficient balance (402) |
 | `NotifoxRateLimitError` | Rate limit exceeded (429) |
-| `NotifoxAPIError` | General API errors |
+| `NotifoxAPIError` | General API errors (400, 500, etc.) |
 | `NotifoxConnectionError` | Network errors |
