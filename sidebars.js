@@ -20,6 +20,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Getting started',
+      collapsed: false,
       items: [
         'getting-started/account',
         'getting-started/api-token',
@@ -31,6 +32,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Languages',
+      collapsed: false,
       items: [
         'languages/python',
         'languages/go',
@@ -39,6 +41,7 @@ const sidebars = {
     {
       type: 'category',
       label: 'Reference',
+      collapsed: false,
       items: [
         'reference/parts',
         'reference/alerts-api',

@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Notifox is a simple alert service designed for developers who need to send notifications to themselves or their team. Send alerts via **SMS** or **Email** with a single API call. Built for alerts and monitoring, not mass marketing.
 
-## The Problem: Why Traditional SMS Services Are Overkill
+## The Problem: Why Traditional Notification Services Are Overkill
 
 As a developer, you just need to get notified when something happens:
 - Server goes down
@@ -14,33 +14,33 @@ As a developer, you just need to get notified when something happens:
 - Database backup completes
 - Deployment finishes
 
-But traditional SMS providers like Twilio make this unnecessarily expensive and complicated:
+But most notification platforms are built for marketing teams, not developers:
 
-* **Expensive upfront costs**: Twilio requires 10DLC/RSC campaign registration ($15-20), monthly campaign fees ($2+), and number leasing costs ($1-2/month per number). You're paying $18-24 before sending your first message.
+* **Enterprise-focused**: Most services are designed for sending thousands of messages to customers, with complex setup, minimum commitments, and enterprise contracts.
 
-* **Complex verification process**: Before you can send SMS alerts, you need to register your business, create campaigns, and get carrier approval. This process can take days or weeks.
+* **Single-channel limitations**: Many services only support one channel (SMS or email), forcing you to use multiple providers for different use cases.
 
-* **Enterprise pricing**: Most notification services are built for marketing teams sending thousands of messages, with minimum commitments and enterprise contracts.
+* **Expensive and complex**: Traditional SMS providers require carrier verification, campaign registration, and number leasing—costing $18-24 before you send your first message.
 
-* **Over-engineered solutions**: You don't need carrier verification, number leasing, or campaign management for simple alerts to yourself.
+* **Over-engineered**: You don't need marketing features, campaign management, or enterprise infrastructure for simple alerts to yourself and your team.
 
-You need a simple, affordable way to send SMS alerts without jumping through enterprise hoops or paying for features you'll never use.
+You need a simple, affordable way to send notifications across multiple channels without jumping through enterprise hoops or paying for features you'll never use.
 
 ## What Notifox Is
 
-Notifox is a **developer-focused alert service** that lets you send notifications to verified recipients (yourself and teammates) with a single API call:
+Notifox is a **developer-focused multi-channel notification platform** that lets you send alerts to verified recipients (yourself and teammates) with a single API call:
 
-* **Two channels**: Send alerts via SMS ($0.025/part) for urgent notifications, or Email ($0.001/email) for detailed reports.
+* **Multiple channels**: Send alerts via SMS ($0.025/part) for urgent notifications, or Email ($0.001/email) for detailed reports. Choose the right channel for each alert.
 
-* **No carrier verification required**: Since you're only sending to verified recipients, we handle the verification requirements for you.
+* **No setup friction**: Since you're only sending to verified recipients, we handle all the complexity. No carrier verification, no number leasing, no campaigns.
 
-* **No number leasing**: No monthly fees or upfront commitments. Pay only for the messages you send.
-
-* **Usage-based pricing**: SMS at $0.025 per part, Email at $0.001 per email. No hidden fees, no minimums.
+* **Usage-based pricing**: Pay only for what you send—SMS at $0.025 per part, Email at $0.001 per email. No monthly fees, no minimums, no hidden costs.
 
 * **Simple verification**: Add recipients by verifying phone numbers and email addresses. Up to 15 verified recipients per account.
 
-* **Built for alerts**: Designed specifically for developers sending critical notifications, not mass marketing campaigns.
+* **Built for developers**: Designed specifically for sending critical notifications and alerts, not mass marketing campaigns.
+
+* **Easy channel switching**: The same API works for both channels. Switch between SMS and email with a single parameter change.
 
 ## What Notifox Isn't
 
@@ -52,9 +52,10 @@ Notifox is a **developer-focused alert service** that lets you send notification
 
 ## The Solution
 
-Notifox eliminates the barriers that make traditional SMS services expensive and complicated:
+Notifox eliminates the barriers that make traditional notification services expensive and complicated:
 
 ```bash
+# Send via SMS for urgent alerts
 curl -X POST https://api.notifox.com/alert \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
@@ -63,30 +64,40 @@ curl -X POST https://api.notifox.com/alert \
     "channel": "sms",
     "alert": "Server is down!"
   }'
+
+# Or send via Email for detailed reports
+curl -X POST https://api.notifox.com/alert \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "audience": "joe",
+    "channel": "email",
+    "alert": "Deployment completed successfully. Details: ..."
+  }'
 ```
 
-**No 10DLC registration. No number leasing. No monthly fees. Just simple, affordable SMS alerts.**
+**No carrier registration. No number leasing. No monthly fees. Just simple, affordable multi-channel notifications.**
 
 ## Key Features
 
-* **Zero setup friction**: Create an account, add a payment method, verify recipients, and start sending. No carrier approvals needed.
+* **Zero setup friction**: Create an account, add a payment method, verify recipients, and start sending. No carrier approvals or complex configurations needed.
 
-* **Two channels**: SMS for urgent alerts, Email for detailed notifications. Choose per-message.
+* **Multi-channel support**: SMS for urgent, time-sensitive alerts. Email for detailed reports, logs, and non-critical updates. Choose the right channel per message.
 
-* **Transparent pricing**: SMS at $0.025/part, Email at $0.001/email. Calculate costs before sending. No surprises.
+* **Transparent pricing**: SMS at $0.025/part, Email at $0.001/email. Calculate costs before sending. No surprises, no minimums.
 
-* **Simple API**: One endpoint, clear documentation, and SDKs for popular languages.
+* **Simple API**: One endpoint for all channels, clear documentation, and SDKs for Python and Go.
 
-* **Reliable delivery**: Built on proven infrastructure with automatic retries.
+* **Reliable delivery**: Built on proven infrastructure with automatic retries and global reach.
 
-* **Developer-friendly**: RESTful API, comprehensive docs, interactive console for testing.
+* **Developer-friendly**: RESTful API, comprehensive docs, interactive console for testing, and easy channel switching.
 
 ## Perfect For
 
 * Solo developers monitoring servers and services
 * Small teams sending alerts to on-call engineers
 * Automated systems notifying developers of critical events
-* Anyone who needs simple, affordable SMS notifications without enterprise complexity
+* Anyone who needs simple, affordable multi-channel notifications without enterprise complexity
 
 ## Quick Start
 
@@ -96,4 +107,4 @@ curl -X POST https://api.notifox.com/alert \
 4. **Verify recipients** by adding audiences and confirming phone numbers and/or email addresses
 5. **Send your first alert** using the API, SDK, or interactive console
 
-Get started in minutes, not days. No carrier verification, no campaigns, no enterprise sales calls.
+Get started in minutes, not days. No carrier verification, no campaigns, no enterprise sales calls. Just simple, multi-channel notifications that work.
