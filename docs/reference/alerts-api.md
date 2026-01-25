@@ -322,3 +322,7 @@ On success, you'll receive a `200 OK` response with a JSON body:
 | `400` | Bad Request | Invalid request format or empty alert |
 | `500` | Internal Server Error | Server-side error occurred |
 
+## Related Reference Documentation
+
+* [Data Model](/docs/reference/data-model) - Complete overview of alerts, audiences, channels, and how objects relate
+* [SMS Parts Reference](/docs/reference/parts) - Understanding SMS parts, encoding, character limits, and cost calculation

@@ -20,7 +20,7 @@ But most notification platforms are built for marketing teams, not developers:
 
 * **Single-channel limitations**: Many services only support one channel (SMS or email), forcing you to use multiple providers for different use cases.
 
-* **Expensive and complex**: Traditional SMS providers require carrier verification, campaign registration, and number leasing—costing $18-24 before you send your first message.
+* **Expensive and complex**: Traditional SMS providers require carrier verification, campaign registration, and number leasing, costing $18-24 before you send your first message.
 
 * **Over-engineered**: You don't need marketing features, campaign management, or enterprise infrastructure for simple alerts to yourself and your team.
 
@@ -34,7 +34,7 @@ Notifox is a **developer-focused multi-channel notification platform** that lets
 
 * **No setup friction**: Since you're only sending to verified recipients, we handle all the complexity. No carrier verification, no number leasing, no campaigns.
 
-* **Usage-based pricing**: Pay only for what you send—SMS at $0.025 per part, Email at $0.001 per email. No monthly fees, no minimums, no hidden costs.
+* **Usage-based pricing**: Pay only for what you send: SMS at $0.025 per part, Email at $0.001 per email. No monthly fees, no minimums, no hidden costs.
 
 * **Simple verification**: Add recipients by verifying phone numbers and email addresses. Up to 15 verified recipients per account.
 
@@ -108,3 +108,13 @@ curl -X POST https://api.notifox.com/alert \
 5. **Send your first alert** using the API, SDK, or interactive console
 
 Get started in minutes, not days. No carrier verification, no campaigns, no enterprise sales calls. Just simple, multi-channel notifications that work.
+
+## Reference Documentation
+
+For complete API and technical documentation:
+
+* **[Data Model](/docs/reference/data-model)** - Complete overview of accounts, API tokens, audiences, alerts, channels, and how they relate. Essential for understanding core concepts.
+* **[Alerts API Reference](/docs/reference/alerts-api)** - Complete API documentation: endpoints, request/response formats, error codes, rate limits, and examples.
+* **[SMS Parts Reference](/docs/reference/parts)** - Understanding SMS parts, encoding (GSM-7 vs UCS-2), character limits, and cost calculation.
+
+These reference pages provide detailed technical information for both humans and AI assistants.

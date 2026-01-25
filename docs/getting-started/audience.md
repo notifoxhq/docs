@@ -4,12 +4,19 @@ sidebar_position: 3
 
 # Create an Audience
 
-Audiences are how you tell Notifox who should receive your alerts. Think of an audience as a named contact—like "joe", "oncall" or "dev-team" that you can reference when sending alerts.
+An **audience** is a named identifier (slug) that maps to verified contact methods. Think of it as a label you create (like `"joe"`, `"oncall"`, or `"dev-team"`) that you reference when sending alerts through the API.
+
+**Important:** An audience is:
+- A **slug/identifier** (string) that you choose
+- **Not** a user ID, email address, or phone number
+- A way to reference verified contact methods in your API calls
 
 Each audience can have:
-* A **phone number** for SMS alerts
-* An **email address** for email alerts
-* Or both!
+* **At most one** verified phone number for SMS alerts (or none)
+* **At most one** verified email address for email alerts (or none)
+* Or both (one phone + one email)
+
+**Example:** If you create an audience named `"joe"` with a verified phone number and email, you can send alerts to `"joe"` via SMS or email by specifying the channel in your API request. An audience can also have just a phone number, just an email address, or both.
 
 Let's create your first audience together.
 
@@ -19,7 +26,7 @@ Head over to the [Audiences](https://console.notifox.com/?view=audiences) page a
 
 ![audience modal](./images/audience-1.png)
 
-You'll see a simple form asking for an audience name. Choose something descriptive that you'll remember—like `oncall`, `dev-team`, or `support`. The name can include letters, numbers, hyphens, and underscores, but no spaces.
+You'll see a simple form asking for an audience name. Choose something descriptive that you'll remember, like `oncall`, `dev-team`, or `support`. The name can include letters, numbers, hyphens, and underscores, but no spaces.
 
 Click **Create Audience** when you're ready. You'll automatically be taken to the detailed view for your new audience.
 
@@ -33,7 +40,7 @@ In the detailed view, you'll see a **Phone Number** section with an **Add** butt
 
 ![add phone modal](./images/audience-2.png)
 
-Enter your US phone number (it should start with `+1`). The form will help you format it correctly. You'll also see a brief message about SMS alerts—this is required for compliance.
+Enter your US phone number (it should start with `+1`). The form will help you format it correctly. You'll also see a brief message about SMS alerts: this is required for compliance.
 
 Click **Add Phone Number**. Notifox will automatically send a 6-digit verification code to that number via SMS.
 
@@ -63,7 +70,7 @@ Your audience is now ready to use. You'll see it listed on the [Audiences](https
 
 ![audiences list](./images/audience-4.png)
 
-You can click the edit icon (pencil) next to any audience to manage it—add or remove phone numbers and email addresses, or delete the audience entirely.
+You can click the edit icon (pencil) next to any audience to manage it: add or remove phone numbers and email addresses, or delete the audience entirely.
 
 ## Which channel to use?
 
@@ -75,3 +82,9 @@ You can click the edit icon (pencil) next to any audience to manage it—add or 
 You can configure both channels on the same audience and choose which one to use when sending each alert.
 
 **What's next?** Now that you have an audience set up, you're ready to [add some funds](./adding-funds.md) and send your first alert!
+
+## Reference Documentation
+
+For more details about audiences and the data model:
+* [Data Model](/docs/reference/data-model) - Complete overview of audiences, alerts, channels, and how they relate
+* [Alerts API Reference](/docs/reference/alerts-api) - Full API documentation for sending alerts

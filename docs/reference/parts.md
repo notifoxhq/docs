@@ -7,7 +7,7 @@ sidebar_position: 1
 When you send an SMS alert, Notifox automatically calculates how many **parts** your message will use. Understanding parts helps you predict costs and optimize your message length.
 
 :::tip Email alerts are simpler
-Email alerts don't have parts—they're always 1 part and cost a flat $0.001 per email, with a maximum of 50,000 characters. This section is specifically about SMS.
+Email alerts don't have parts: they're always 1 part and cost a flat $0.001 per email, with a maximum of 50,000 characters. This section is specifically about SMS.
 :::
 
 ## What Are SMS Parts?
@@ -139,3 +139,8 @@ Message: "Alert: Server is down! 🔴"
 Length: 24 characters + 10 ("Notifox: ") + emoji uses more bytes
 Result: 1 part (but using UCS-2 encoding due to emoji), $0.025
 ```
+
+## Related Reference Documentation
+
+* [Data Model](/docs/reference/data-model) - Complete overview of alerts, channels, and the object model
+* [Alerts API Reference](/docs/reference/alerts-api) - Complete API documentation for sending alerts

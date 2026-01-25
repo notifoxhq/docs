@@ -52,3 +52,9 @@ View all account activity on the [Billing](https://console.notifox.com/?view=bil
 ## Next Steps
 
 Now that you have funds, you're ready to [send your first alert](/docs/getting-started/alert)!
+
+## Reference Documentation
+
+For more details about pricing and costs:
+* [SMS Parts Reference](/docs/reference/parts) - Understanding SMS parts, encoding, and cost calculation
+* [Data Model](/docs/reference/data-model) - Overview of accounts, balances, and billing
