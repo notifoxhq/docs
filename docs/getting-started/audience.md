@@ -11,6 +11,8 @@ An **audience** is a named identifier (slug) that maps to verified contact metho
 - **Not** a user ID, email address, or phone number
 - A way to reference verified contact methods in your API calls
 
+**Console-only management:** Audiences can only be created and managed through the [Notifox console](https://console.notifox.com/?view=audiences). There is no API for creating or managing audiences yet. You must use the web interface to create audiences, add contact methods, and verify them.
+
 Each audience can have:
 * **At most one** verified phone number for SMS alerts (or none)
 * **At most one** verified email address for email alerts (or none)
@@ -44,11 +46,15 @@ Enter your US phone number (it should start with `+1`). The form will help you f
 
 Click **Add Phone Number**. Notifox will automatically send a 6-digit verification code to that number via SMS.
 
-A verification window will pop up automatically. Check your phone for the 6-digit code, then enter it in the prompt.
+**Verification Process:**
+1. You'll receive an SMS with a 6-digit code on the phone number you entered
+2. A verification window will pop up automatically in the console
+3. Enter the 6-digit code you received via SMS into the prompt in the console
+4. This proves you own/control the phone number
 
 ![verify phone modal](./images/audience-3.png)
 
-Once you've entered all 6 digits, you can press **Enter** to submit. If the code is correct, your phone number will be verified!
+Once you've entered all 6 digits and pressed **Enter** to submit, if the code is correct, your phone number will be verified! You cannot use the phone number to send alerts until it's verified.
 
 **Tip:** If you don't receive the code, you can delete the phone number and try adding it again.
 
@@ -58,11 +64,17 @@ In the detailed view, you'll also see an **Email** section with an **Add** butto
 
 ![add email modal](./images/audience-email-1.png)
 
-Enter the email address you want to receive alerts at. Click **Add Email**. Notifox will send a verification email to that address.
+Enter the email address you want to receive alerts at. Click **Add Email**. Notifox will automatically send a 6-digit verification code to that email address.
 
-Check your inbox for the verification email and click the link inside to verify. Once verified, you can send email alerts to this audience.
+**Verification Process:**
+1. You'll receive an email with a 6-digit code at the email address you entered
+2. A verification window will pop up automatically in the console
+3. Enter the 6-digit code you received via email into the prompt in the console
+4. This proves you own/control the email address
 
-**Tip:** Check your spam folder if you don't see the verification email.
+Check your inbox for the verification email. Once you've entered all 6 digits and pressed **Enter** to submit, if the code is correct, your email address will be verified! You cannot use the email address to send alerts until it's verified.
+
+**Tip:** Check your spam folder if you don't see the verification email. If you don't receive the code, you can delete the email address and try adding it again.
 
 ## That's it!
 
@@ -70,7 +82,7 @@ Your audience is now ready to use. You'll see it listed on the [Audiences](https
 
 ![audiences list](./images/audience-4.png)
 
-You can click the edit icon (pencil) next to any audience to manage it: add or remove phone numbers and email addresses, or delete the audience entirely.
+You can click the edit icon (pencil) next to any audience to manage it: add or remove phone numbers and email addresses, or delete the audience entirely. All audience management must be done in the console—there is no API for managing audiences.
 
 ## Which channel to use?
 
