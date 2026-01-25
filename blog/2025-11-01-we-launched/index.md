@@ -2,7 +2,7 @@
 slug: we-launched
 title: We've launched
 authors: [mathis]
-tags: []
+tags: [release, announcement]
 ---
 
 Late last year I accidentally forgot to destroy a GPU EC2 instance that was part of a Kubernetes cluster to try out Ollama for a YouTube video (which you can watch [here](https://youtu.be/Yomo2DnL9NA)). This mistake of not deleting the instance ended up costing me well over $500. As you can imagine this left a sour taste in my mouth as this (for me at least) is serious cash!
@@ -17,11 +17,11 @@ So after the end of the month rolled around I was dumbfounded to see a huge AWS 
 
 This led me on a journey of thinking of ways to prevent this from ever happening again. I immediately started toying around with running a Lambda function once a day to check my current balance, and try to predict the final balance based on the slope of my daily spend graph. This worked pretty well, but one piece of the puzzle was missing:
 
+<!-- truncate -->
+
 ### The notifications!
 
 Emails are a great alerting channel for non urgent matters, things you can put off a couple of days, or ultimately forget about all-together. Emails are simply not **in your face** enough to alert yourself of important events! And my AWS bill exceeding anything over a couple of $ was an important event to me. So I looked into how to send myself text messages.
-
-<!-- truncate -->
 
 I quickly realized that my main options were large providers such as Twilio and AWS SNS, both of which had incredibly high startup costs, strict regulatory requirements and a very high lead time. But there wasn't much else for me to do, so I went through the process of getting a 10DLC verification with Twilio. 3 weeks older and $30 poorer, I had a phone number I could send text from. Unfortunately, I was spending $2 a month renting this phone number out. In most months this happened to be more than my AWS bill.
 
