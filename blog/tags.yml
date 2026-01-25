@@ -1,0 +1,9 @@
+release:
+  label: Release
+  permalink: /blog/tags/release
+  description: Product releases and updates
+
+announcement:
+  label: Announcement
+  permalink: /blog/tags/announcement
+  description: Important announcements and news
