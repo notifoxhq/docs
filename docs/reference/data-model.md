@@ -63,6 +63,7 @@ An audience is a **named identifier (slug)** that maps to verified contact metho
 - An audience can have **at most one phone number** and **at most one email address**
 - An audience can have just a phone number, just an email address, or both
 - You must verify at least one contact method (phone or email) before sending alerts to that channel
+- **Console-only management**: Audiences can only be created and managed through the web console. There is no API endpoint for creating, updating, or deleting audiences. You must use the [Notifox console](https://console.notifox.com/?view=audiences) for all audience management operations.
 
 **Example:**
 ```json
@@ -162,7 +163,11 @@ Alert Request
 - All contact methods (phone numbers and email addresses) must be verified before use
 - Verification ensures you own/control the contact method
 - Unverified contact methods cannot receive alerts
-- Verification is done via code sent to the contact method
+- **Verification process**:
+  - **Phone numbers**: You receive a 6-digit code via SMS. Enter this code in the Notifox console to verify ownership.
+  - **Email addresses**: You receive a 6-digit code via email. Enter this code in the Notifox console to verify ownership.
+- Verification must be completed in the console—you cannot verify contact methods via API
+- This verification step is required for SMS compliance and ensures you actually own the phone number or email address
 
 ### Channel Selection
 - You choose the channel (`sms` or `email`) when sending each alert
