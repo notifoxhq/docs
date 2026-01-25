@@ -33,7 +33,7 @@ When sending an alert, you can specify the `channel` parameter:
 
 | Channel | Cost | Max Length | Best For |
 |---------|------|------------|----------|
-| `sms` | $0.025/part | ~765 chars (5 parts) | Urgent, time-sensitive alerts |
+| `sms` | $0.025/part | 765 chars (5 parts) | Urgent, time-sensitive alerts |
 | `email` | $0.001/email | 50,000 chars | Detailed alerts, logs, reports |
 
 **Note:** The channel you choose must be configured for the audience. For example, if you want to send an email, the audience must have a verified email address.

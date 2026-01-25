@@ -28,15 +28,15 @@ You need a simple, affordable way to send notifications across multiple channels
 
 ## What Notifox Is
 
-Notifox is a **developer-focused multi-channel notification platform** that lets you send alerts to verified recipients (yourself and teammates) with a single API call:
+Notifox is a **developer-focused multi-channel notification platform** that lets you send alerts to audiences (yourself and teammates) with a single API call:
 
 * **Multiple channels**: Send alerts via SMS ($0.025/part) for urgent notifications, or Email ($0.001/email) for detailed reports. Choose the right channel for each alert.
 
-* **No setup friction**: Since you're only sending to verified recipients, we handle all the complexity. No carrier verification, no number leasing, no campaigns.
+* **No setup friction**: Since you're only sending to verified audiences, we handle all the complexity. No carrier verification, no number leasing, no campaigns.
 
 * **Usage-based pricing**: Pay only for what you send: SMS at $0.025 per part, Email at $0.001 per email. No monthly fees, no minimums, no hidden costs.
 
-* **Simple verification**: Add recipients by verifying phone numbers and email addresses. Up to 15 verified recipients per account.
+* **Simple verification**: Add recipients by verifying phone numbers and email addresses. Up to 15 audiences per account.
 
 * **Built for developers**: Designed specifically for sending critical notifications and alerts, not mass marketing campaigns.
 
@@ -44,7 +44,7 @@ Notifox is a **developer-focused multi-channel notification platform** that lets
 
 ## What Notifox Isn't
 
-* **Not a mass marketing platform**: You can only send to verified recipients (up to 15). Not suitable for sending messages to customers, users, or unverified numbers.
+* **Not a mass marketing platform**: You can only send to up to 15 audiences. Not suitable for sending messages to customers, users, or unverified numbers.
 
 * **Not a replacement for Twilio**: If you need to send to unverified numbers, create marketing campaigns, or send thousands of messages, Twilio or AWS SNS are better fits.
 

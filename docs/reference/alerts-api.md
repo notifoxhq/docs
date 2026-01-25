@@ -26,7 +26,7 @@ The request body must be valid JSON containing:
 * `audience` (string, required)
   * The name of the audience to send the alert to
   * Must match a verified audience name in your account
-  * Case-insensitive
+  * Case-sensitive (e.g., `"joe"` and `"Joe"` are different audiences)
 * `alert` (string, required)
   * The message text you want to send
   * Cannot be empty
@@ -41,7 +41,7 @@ The request body must be valid JSON containing:
 | Feature | SMS | Email |
 |---------|-----|-------|
 | Cost | $0.025 per part | $0.001 per email |
-| Max length | ~765 chars (5 parts) | 50,000 characters |
+| Max length | 765 chars (5 parts) | 50,000 characters |
 | Rate limit | 5 per 5 minutes | 100 per 5 minutes |
 | Encoding | GSM-7 or UCS-2 | UTF-8 |
 | Prefix/Footer | "Notifox: " prefix | Footer disclaimer |
@@ -125,7 +125,8 @@ On success, you'll receive a `200 OK` response with a JSON body:
 **Part limits:**
 * **Single-part**: Up to 160 characters (GSM-7) or 70 characters (UCS-2)
 * **Multi-part**: 153 characters per additional part (GSM-7) or 67 characters (UCS-2)
-* **Total maximum**: ~765 characters (GSM-7) or ~335 characters (UCS-2)
+* **Total maximum**: Exactly 765 characters (GSM-7) or ~335 characters (UCS-2)
+  * For 5-part messages: 5 × 153 = 765 characters (all parts use 153 in multipart SMS)
 
 See [SMS Parts and Message Length](/docs/reference/parts) for detailed information.
 
@@ -192,7 +193,7 @@ If you exceed these limits, you'll receive a `429 Too Many Requests` response.
 |---------|-------|
 | `alert message cannot be empty` | The `alert` field is missing or empty |
 | `alert message cannot be empty or only whitespace` | Message contains only spaces/newlines (email) |
-| `alert message cannot be greater than 5000 characters` | SMS message exceeds 5000 chars |
+| `alert message cannot be greater than 765 characters` | SMS message exceeds 765 chars (5 parts maximum) |
 | `alert message cannot be greater than 50000 characters` | Email message exceeds 50,000 chars |
 | `alert message contains invalid UTF-8 encoding` | Email contains invalid UTF-8 characters |
 | `alert message cannot contain null bytes` | Email contains null (`\x00`) characters |

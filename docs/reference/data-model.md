@@ -108,7 +108,7 @@ A channel is the delivery method for an alert.
 **Types:**
 - **`sms`**: SMS text message
   - Cost: $0.025 per part
-  - Max length: ~765 characters (5 parts)
+  - Max length: 765 characters (5 parts, 5 × 153 = 765)
   - Requires: Verified phone number on the audience
   - Best for: Urgent, time-sensitive alerts
 
