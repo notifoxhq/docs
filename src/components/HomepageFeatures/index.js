@@ -8,8 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Send notifications across multiple channels including SMS, email, and push notifications
-        with a single API call. Perfect for alerts, updates, and user engagement.
+        Send alerts via SMS or email with a single API call. Choose the right channel for each alert—SMS for urgent notifications, email for detailed reports.
       </>
     ),
   },
@@ -18,18 +17,16 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Simple REST API with SDKs for popular languages. Get started in minutes with
-        comprehensive documentation and code examples.
+        Simple REST API with SDKs for Python and Go. Get started in minutes with comprehensive documentation and code examples.
       </>
     ),
   },
   {
-    title: 'Reliable & Scalable',
+    title: 'Simple & Affordable',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Built for production with 99.9% uptime SLA, automatic retries, and global
-        infrastructure to ensure your notifications always reach their destination.
+        No carrier verification, no number leasing, no monthly fees. Pay only for what you send—$0.025 per SMS part, $0.001 per email.
       </>
     ),
   },
