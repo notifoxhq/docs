@@ -8,15 +8,24 @@ Now that you have an account, API token, and verified audience, you're ready to 
 
 ## What Are Alerts?
 
-Alerts are messages you send through the Notifox API. Notifox supports two channels:
+An **alert** is a message you send through the Notifox API to a specific audience via a chosen channel. 
 
-* **SMS** - Text messages sent to phone numbers
-* **Email** - Emails sent to email addresses
+**Alert Structure:**
+- **audience** (required): The audience identifier/slug (e.g., `"joe"`, `"oncall"`) - see [Creating an Audience](./audience.md)
+- **alert** (required): The message content (string)
+- **channel** (required): Either `"sms"` or `"email"` - the delivery method
+
+Notifox supports two channels:
+
+* **SMS** - Text messages sent to verified phone numbers
+* **Email** - Emails sent to verified email addresses
 
 They're perfect for:
 * Notifying yourself or your team about server issues
 * Sending critical system alerts
 * Getting notified about important events in your application
+
+For a complete overview of how alerts, audiences, channels, and other objects relate, see the [Data Model](/docs/reference/data-model) reference.
 
 ## Choosing a Channel
 
@@ -24,7 +33,7 @@ When sending an alert, you can specify the `channel` parameter:
 
 | Channel | Cost | Max Length | Best For |
 |---------|------|------------|----------|
-| `sms` | $0.025/part | ~765 chars (5 parts) | Urgent, time-sensitive alerts |
+| `sms` | $0.025/part | 765 chars (5 parts) | Urgent, time-sensitive alerts |
 | `email` | $0.001/email | 50,000 chars | Detailed alerts, logs, reports |
 
 **Note:** The channel you choose must be configured for the audience. For example, if you want to send an email, the audience must have a verified email address.

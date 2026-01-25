@@ -7,7 +7,7 @@ sidebar_position: 1
 When you send an SMS alert, Notifox automatically calculates how many **parts** your message will use. Understanding parts helps you predict costs and optimize your message length.
 
 :::tip Email alerts are simpler
-Email alerts don't have parts—they're always 1 part and cost a flat $0.001 per email, with a maximum of 50,000 characters. This section is specifically about SMS.
+Email alerts don't have parts: they're always 1 part and cost a flat $0.001 per email, with a maximum of 50,000 characters. This section is specifically about SMS.
 :::
 
 ## What Are SMS Parts?
@@ -25,13 +25,16 @@ Notifox uses intelligent encoding to fit as much text as possible into each part
 For messages using standard characters (letters, numbers, basic punctuation, and some accented characters), you get:
 
 * **Single-part messages**: Up to 160 characters
-* **Multi-part messages**: 153 characters per part after the first part
+* **Multi-part messages**: 
+  * 2-part messages: First part up to 160 characters, second part up to 153 characters
+  * 3+ part messages: All parts use 153 characters each
+  * **Maximum 5 parts**: Exactly 765 characters (5 × 153 = 765, all parts use 153 in multipart SMS)
 
 **Example:**
 * Message with 80 characters = **1 part**
 * Message with 160 characters = **1 part**
-* Message with 161 characters = **2 parts** (split at 160)
-* Message with 315 characters = **3 parts** (160 + 153 + 2 remaining)
+* Message with 161 characters = **2 parts** (160 + 1)
+* Message with 315 characters = **3 parts** (160 + 153 + 2)
 
 **Special Characters That Count Double:**
 
@@ -124,7 +127,7 @@ Length: 155 characters + 10 ("Notifox: ") = 165 characters total
 Result: 2 parts (160 + 5), $0.050
 ```
 
-### Example 3: Very Long Message (3 Parts)
+### Example 3: Longer Message (2 Parts)
 
 ```
 Message: "This is a very long alert message that exceeds the single SMS limit and will be split into multiple parts when sent to the recipient. Each part costs $0.025."
@@ -139,3 +142,8 @@ Message: "Alert: Server is down! 🔴"
 Length: 24 characters + 10 ("Notifox: ") + emoji uses more bytes
 Result: 1 part (but using UCS-2 encoding due to emoji), $0.025
 ```
+
+## Related Reference Documentation
+
+* [Data Model](/docs/reference/data-model) - Complete overview of alerts, channels, and the object model
+* [Alerts API Reference](/docs/reference/alerts-api) - Complete API documentation for sending alerts

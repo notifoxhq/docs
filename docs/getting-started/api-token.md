@@ -4,7 +4,19 @@ sidebar_position: 2
 
 # Create an API token
 
-An API token (or sometimes referred to as API key) is used to authenticate with the Notifox API.
+An **API token** (also called API key) is a secret string used to authenticate all requests to the Notifox API.
+
+**Type:** String (secret credential)
+
+**Format:** Alphanumeric string, typically 40+ characters
+
+**Usage:** Include in the `Authorization: Bearer <token>` header for all API requests
+
+**Important:** 
+- API tokens are secrets: treat them like passwords
+- Each token is shown only once when created
+- You can create up to 10 API tokens per account
+- Tokens don't expire unless you delete them
 
 ## Creating an API token
 
@@ -58,3 +70,9 @@ Keep in mind that once you delete an API token, it can no longer be used. Any re
 * **Use different tokens for different environments**: Create separate tokens for production, staging, and development to better track usage and limit blast radius if one is compromised.
 * **Don't share tokens**: API tokens grant full access to send alerts from your account. Only share tokens with trusted team members who need API access.
 * **Delete unused tokens**: Remove tokens that are no longer in use to reduce your attack surface.
+
+## Reference Documentation
+
+For more details about API tokens and authentication:
+* [Data Model](/docs/reference/data-model) - Overview of API tokens and other core objects
+* [Alerts API Reference](/docs/reference/alerts-api) - API authentication and error handling

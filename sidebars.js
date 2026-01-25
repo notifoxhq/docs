@@ -43,6 +43,7 @@ const sidebars = {
       label: 'Reference',
       collapsed: false,
       items: [
+        'reference/data-model',
         'reference/parts',
         'reference/alerts-api',
       ],
