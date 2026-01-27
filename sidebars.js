@@ -40,6 +40,14 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Tools',
+      collapsed: false,
+      items: [
+        'tools/cli',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Reference',
       collapsed: false,
       items: [
