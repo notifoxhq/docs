@@ -1,10 +1,12 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Notifox Documentation - Custom Styles
+ * Modern, polished design for a YC-funded startup
  */
 
-/* You can override the default Infima variables here. */
+/* ============================================
+   CSS Variables & Theme
+   ============================================ */
+
 :root {
   --ifm-color-primary: #dd6324;
   --ifm-color-primary-dark: #c4561f;
@@ -17,9 +19,26 @@
   --docusaurus-highlighted-code-line-bg: rgba(221, 99, 36, 0.1);
   --ifm-link-color: #dd6324;
   --ifm-link-hover-color: #c4561f;
+  
+  /* Custom spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Border radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* Dark theme */
 [data-theme='dark'] {
   --ifm-color-primary: #e6733d;
   --ifm-color-primary-dark: #dd6324;
@@ -31,15 +50,619 @@
   --docusaurus-highlighted-code-line-bg: rgba(221, 99, 36, 0.2);
   --ifm-link-color: #ef8456;
   --ifm-link-hover-color: #f59f7a;
-  --ifm-background-color: #0f172a;
-  --ifm-background-surface-color: #1e293b;
-  --ifm-color-content: #f1f5f9;
-  --ifm-color-content-secondary: #cbd5e1;
-  --ifm-navbar-background-color: #0f172a;
-  --ifm-footer-background-color: #0f172a;
+  --ifm-background-color: #0a0f1a;
+  --ifm-background-surface-color: #151b28;
+  --ifm-color-content: #e2e8f0;
+  --ifm-color-content-secondary: #94a3b8;
+  --ifm-navbar-background-color: rgba(10, 15, 26, 0.8);
+  --ifm-footer-background-color: #0a0f1a;
+  --ifm-sidebar-background-color: #0f172a;
+  
+  /* Code block background */
+  --ifm-code-background: #1e293b;
+  --ifm-pre-background: #1e293b;
+  
+  /* Borders */
+  --ifm-border-color: rgba(148, 163, 184, 0.1);
 }
 
-/* Override homepage to be light */
+/* ============================================
+   Typography Improvements
+   ============================================ */
+
+html {
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 1.875rem;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--ifm-border-color);
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), transparent);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+}
+
+p {
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ============================================
+   Navbar Enhancements
+   ============================================ */
+
+.navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(10, 15, 26, 0.85) !important;
+  border-bottom: 1px solid var(--ifm-border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1.5rem;
+  transition: all var(--transition-base);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar__brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: transform var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar__brand:hover {
+  transform: translateY(-1px);
+}
+
+.navbar__logo {
+  height: 32px;
+  width: 32px;
+}
+
+.navbar__item {
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.navbar__link {
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.75rem;
+  transition: all var(--transition-fast);
+}
+
+.navbar__link:hover {
+  background-color: rgba(230, 115, 61, 0.1);
+  color: var(--ifm-color-primary-light);
+}
+
+.navbar__link--active {
+  background: linear-gradient(135deg, rgba(230, 115, 61, 0.2), rgba(230, 115, 61, 0.15));
+  color: var(--ifm-color-primary-light);
+  box-shadow: 0 2px 4px rgba(230, 115, 61, 0.1);
+}
+
+/* ============================================
+   Sidebar Enhancements
+   ============================================ */
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-border-color);
+  background-color: var(--ifm-sidebar-background-color);
+}
+
+.menu {
+  padding: var(--spacing-md) 0;
+}
+
+.menu__link {
+  border-radius: var(--radius-sm);
+  margin: 0.125rem var(--spacing-xs);
+  padding: 0.5rem var(--spacing-sm);
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+.menu__link:hover {
+  background-color: rgba(230, 115, 61, 0.1);
+  color: var(--ifm-color-primary-light);
+  transform: translateX(2px);
+}
+
+.menu__link--active {
+  background: linear-gradient(90deg, rgba(230, 115, 61, 0.2), rgba(230, 115, 61, 0.1));
+  color: var(--ifm-color-primary-light);
+  font-weight: 600;
+  border-left: 3px solid var(--ifm-color-primary);
+  padding-left: calc(var(--spacing-sm) - 3px);
+  box-shadow: -2px 0 8px rgba(230, 115, 61, 0.15);
+}
+
+.menu__list-item-collapsible {
+  margin: 0.25rem 0;
+}
+
+.menu__list-item-collapsible .menu__link {
+  font-weight: 600;
+  color: var(--ifm-color-content);
+}
+
+.menu__list-item-collapsible .menu__link:hover {
+  background-color: rgba(230, 115, 61, 0.1);
+}
+
+/* ============================================
+   Main Content Area
+   ============================================ */
+
+.main-wrapper {
+  background: linear-gradient(180deg, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
+  min-height: 100vh;
+}
+
+/* Add subtle background pattern */
+.main-wrapper::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(230, 115, 61, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(230, 115, 61, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.main-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+.markdown {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+/* Improve readability with better line spacing */
+.markdown p + p {
+  margin-top: var(--spacing-md);
+}
+
+.markdown ul + p,
+.markdown ol + p {
+  margin-top: var(--spacing-md);
+}
+
+/* Better spacing for content */
+.markdown > *:first-child {
+  margin-top: 0;
+}
+
+.markdown > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Enhanced intro page styling */
+.markdown h1 + p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Bold text styling - subtle emphasis */
+.markdown strong {
+  color: var(--ifm-color-content);
+  font-weight: 600;
+}
+
+/* Better list styling for getting started */
+.markdown ol li,
+.markdown ul li {
+  margin-bottom: var(--spacing-sm);
+  padding-left: 0.5rem;
+}
+
+.markdown ol li strong {
+  color: var(--ifm-color-content);
+  font-weight: 600;
+}
+
+/* ============================================
+   Code Blocks - Enhanced Styling
+   ============================================ */
+
+.prism-code {
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--ifm-border-color);
+  overflow: hidden;
+  position: relative;
+}
+
+.prism-code::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  opacity: 0.6;
+}
+
+pre {
+  background-color: var(--ifm-pre-background) !important;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md) !important;
+  margin: var(--spacing-lg) 0;
+  overflow-x: auto;
+  position: relative;
+  border: 1px solid var(--ifm-border-color);
+}
+
+pre::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  opacity: 0.8;
+}
+
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+code {
+  background: linear-gradient(135deg, rgba(230, 115, 61, 0.2), rgba(230, 115, 61, 0.15));
+  border-radius: var(--radius-sm);
+  padding: 0.125rem 0.375rem;
+  font-size: 0.875em;
+  font-weight: 500;
+  color: var(--ifm-color-primary-light);
+  border: 1px solid rgba(230, 115, 61, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Inline code in headings */
+h1 code, h2 code, h3 code, h4 code {
+  background-color: rgba(230, 115, 61, 0.2);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85em;
+}
+
+/* ============================================
+   Links
+   ============================================ */
+
+a {
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+}
+
+/* ============================================
+   Lists
+   ============================================ */
+
+ul, ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-lg);
+}
+
+li {
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.7;
+}
+
+li::marker {
+  color: var(--ifm-color-primary-light);
+}
+
+/* ============================================
+   Tables
+   ============================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-lg) 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--ifm-border-color);
+}
+
+thead {
+  background-color: var(--ifm-background-surface-color);
+}
+
+th {
+  padding: var(--spacing-sm) var(--spacing-md);
+  text-align: left;
+  font-weight: 600;
+  color: var(--ifm-color-content);
+  border-bottom: 2px solid var(--ifm-border-color);
+}
+
+td {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--ifm-border-color);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background-color: rgba(230, 115, 61, 0.05);
+}
+
+/* ============================================
+   Blockquotes
+   ============================================ */
+
+blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  background-color: rgba(230, 115, 61, 0.05);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.button {
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all var(--transition-base);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+}
+
+.button--primary:hover {
+  background: linear-gradient(135deg, var(--ifm-color-primary-light) 0%, var(--ifm-color-primary) 100%);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+  border-top: 1px solid var(--ifm-border-color);
+  background-color: var(--ifm-footer-background-color);
+  padding: var(--spacing-xl) 0;
+}
+
+.footer__link-item {
+  transition: all var(--transition-fast);
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary-light);
+  transform: translateX(2px);
+}
+
+/* ============================================
+   Breadcrumbs
+   ============================================ */
+
+.breadcrumbs {
+  margin-bottom: var(--spacing-md);
+}
+
+.breadcrumbs__item {
+  font-size: 0.875rem;
+}
+
+.breadcrumbs__link {
+  transition: all var(--transition-fast);
+}
+
+.breadcrumbs__link:hover {
+  color: var(--ifm-color-primary-light);
+}
+
+/* ============================================
+   Table of Contents
+   ============================================ */
+
+.table-of-contents {
+  border-left: 2px solid var(--ifm-border-color);
+  padding-left: var(--spacing-md);
+}
+
+.table-of-contents__link {
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem 0.5rem;
+  margin-left: -0.5rem;
+}
+
+.table-of-contents__link:hover {
+  background-color: rgba(230, 115, 61, 0.1);
+  color: var(--ifm-color-primary-light);
+}
+
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary-light);
+  font-weight: 600;
+  background: linear-gradient(90deg, rgba(230, 115, 61, 0.2), rgba(230, 115, 61, 0.1));
+  border-left: 2px solid var(--ifm-color-primary);
+  padding-left: calc(0.5rem - 2px);
+  margin-left: calc(-0.5rem - 2px);
+}
+
+/* ============================================
+   Admonitions
+   ============================================ */
+
+.admonition {
+  border-radius: var(--radius-md);
+  border-left-width: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin: var(--spacing-md) 0;
+}
+
+.admonition-heading {
+  font-weight: 600;
+}
+
+/* ============================================
+   Search
+   ============================================ */
+
+.navbar__search-input {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--ifm-border-color);
+  background-color: var(--ifm-background-surface-color);
+  transition: all var(--transition-fast);
+}
+
+.navbar__search-input:focus {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(230, 115, 61, 0.1);
+}
+
+/* ============================================
+   Responsive Improvements
+   ============================================ */
+
+@media (max-width: 996px) {
+  .markdown {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================================
+   Scrollbar Styling (Webkit)
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-background-surface-color);
+  border-radius: 5px;
+  border: 2px solid var(--ifm-background-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-primary-dark);
+}
+
+/* ============================================
+   Selection
+   ============================================ */
+
+::selection {
+  background-color: rgba(230, 115, 61, 0.3);
+  color: var(--ifm-color-content);
+}
+
+/* ============================================
+   Focus States
+   ============================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================
+   Homepage Overrides (if needed)
+   ============================================ */
+
 [data-theme='dark'] .hero {
   --ifm-background-color: #ffffff;
   --ifm-color-content: #000000;
@@ -63,38 +686,38 @@
   background-color: #c4561f;
 }
 
-/* Keep homepage features with dark background */
 [data-theme='dark'] .features {
-  --ifm-background-color: #0f172a;
-  --ifm-color-content: #f1f5f9;
+  --ifm-background-color: #0a0f1a;
+  --ifm-color-content: #e2e8f0;
 }
 
 [data-theme='dark'] .features h3 {
-  color: #f1f5f9;
+  color: #e2e8f0;
 }
 
 [data-theme='dark'] .features p {
-  color: #cbd5e1;
+  color: #94a3b8;
 }
 
-/* Add some polish to feature cards */
 .features .col {
-  padding: 2rem 1rem;
+  padding: var(--spacing-lg) var(--spacing-md);
+  transition: transform var(--transition-base);
+  border-radius: var(--radius-md);
 }
 
 .features .col:hover {
   transform: translateY(-4px);
-  transition: transform 0.3s ease;
+  background-color: rgba(230, 115, 61, 0.05);
 }
 
 .features h3 {
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 .features p {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }

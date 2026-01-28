@@ -159,7 +159,7 @@ const config = {
         },
         {
           name: 'theme-color',
-          content: '#25c2a0',
+          content: '#dd6324',
         },
       ],
       colorMode: {

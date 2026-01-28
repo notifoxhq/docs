@@ -166,7 +166,7 @@ Alert Request
 - **Verification process**:
   - **Phone numbers**: You receive a 6-digit code via SMS. Enter this code in the Notifox console to verify ownership.
   - **Email addresses**: You receive a 6-digit code via email. Enter this code in the Notifox console to verify ownership.
-- Verification must be completed in the console—you cannot verify contact methods via API
+- Verification must be completed in the console - you cannot verify contact methods via API
 - This verification step is required for SMS compliance and ensures you actually own the phone number or email address
 
 ### Channel Selection

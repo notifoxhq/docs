@@ -6,12 +6,6 @@ sidebar_position: 2
 
 An **API token** (also called API key) is a secret string used to authenticate all requests to the Notifox API.
 
-**Type:** String (secret credential)
-
-**Format:** Alphanumeric string, typically 40+ characters
-
-**Usage:** Include in the `Authorization: Bearer <token>` header for all API requests
-
 **Important:** 
 - API tokens are secrets: treat them like passwords
 - Each token is shown only once when created

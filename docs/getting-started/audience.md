@@ -82,7 +82,7 @@ Your audience is now ready to use. You'll see it listed on the [Audiences](https
 
 ![audiences list](./images/audience-4.png)
 
-You can click the edit icon (pencil) next to any audience to manage it: add or remove phone numbers and email addresses, or delete the audience entirely. All audience management must be done in the console—there is no API for managing audiences.
+You can click the edit icon (pencil) next to any audience to manage it: add or remove phone numbers and email addresses, or delete the audience entirely. All audience management must be done in the console - there is no API for managing audiences.
 
 ## Which channel to use?
 
