@@ -7,7 +7,7 @@ sidebar_position: 4
 Go SDK for [Notifox](https://notifox.com).
 
 **Package:** [github.com/notifoxhq/notifox-go](https://pkg.go.dev/github.com/notifoxhq/notifox-go)  
-**Version:** v0.1.4+
+**Version:** v0.1.5+
 
 ## Installation
 

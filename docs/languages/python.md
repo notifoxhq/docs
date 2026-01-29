@@ -7,7 +7,7 @@ sidebar_position: 3
 Python SDK for [Notifox](https://notifox.com).
 
 **Package:** [notifox on PyPI](https://pypi.org/project/notifox/)
-**Version:** v0.1.4+
+**Version:** v0.1.5+
 
 ## Installation
 
