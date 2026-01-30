@@ -23,7 +23,7 @@ If you have signed up before today (January 30th of 2026), fear not! You can cre
 
 ----
 
-New to Notifox? [Sign Up](https://api.console.notifox.com/login) and you'll have a `me` audience ready to sned email alerts from the start! Use the promo code `launch10` in the Account tab to get **40 SMS alerts or 1000 email alerts for FREE!**
+New to Notifox? [Sign Up](https://api.console.notifox.com/login) and you'll have a `me` audience ready to send email alerts from the start! Use the promo code `launch10` in the Account tab to get **40 SMS alerts or 1000 email alerts for FREE!**
 
 We’d love to hear how this works for you—reach out via email at (mathis@notifox.com) or on [Discord](https://discord.gg/ZSp5SzxJBF).
 
