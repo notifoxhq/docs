@@ -14,6 +14,8 @@ Alternatively you can create an account using your email address and password by
 
 If chosen to create an account using your email address, we will ask for your first name, last name and email. You'll then be asked to enter a password. Finally we will ask you to verify the email address you've provided. You should receive an email with a 6 digit code.
 
+New accounts get a `me` audience with your signup email; see [Creating an Audience](/docs/getting-started/audience) to add more or enable SMS.
+
 ## Reference Documentation
 
 For more details about accounts and the data model:

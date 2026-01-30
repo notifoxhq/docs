@@ -47,7 +47,7 @@ An audience is a **named identifier (slug)** that maps to verified contact metho
 - Letters, numbers, hyphens, and underscores
 - No spaces
 - Case-sensitive
-- Examples: `joe`, `oncall`, `dev-team`, `support_team`
+- Examples: `me`, `joe`, `oncall`, `dev-team`, `support_team`
 
 **Properties:**
 - **Name**: The audience identifier (e.g., `"joe"`, `"oncall"`)
@@ -55,7 +55,7 @@ An audience is a **named identifier (slug)** that maps to verified contact metho
 - **Email Address**: One verified email address (for email alerts), or none
 - **Verification Status**: Whether each contact method is verified
 
-**Where to create:** [Console Audiences page](https://console.notifox.com/?view=audiences)
+**Where to create:** [Console Audiences page](https://console.notifox.com/?view=audiences). New accounts get a `me` audience (signup email) automatically.
 
 **Important:** 
 - An audience is **not** a user ID, email address, or phone number
@@ -146,7 +146,7 @@ Alert Request
 1. **Create Account** → Get access to console
 2. **Add Funds** → Prepay balance for alerts
 3. **Create API Token** → Get authentication credential
-4. **Create Audience** → Choose a slug/identifier (e.g., `"joe"`)
+4. **Create Audience** → Choose a slug/identifier (e.g., `"joe"`); new accounts get `me` with signup email
 5. **Verify Contact Methods** → Add and verify phone number and/or email
 6. **Send Alert** → Use API with audience slug, channel, and message
 
