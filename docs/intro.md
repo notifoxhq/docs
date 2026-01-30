@@ -34,7 +34,7 @@ curl -X POST https://api.notifox.com/alert \
 1. **Sign up** at [console.notifox.com](https://console.notifox.com)
 2. **Get your API token** from the dashboard
 3. **Add funds** to your account (or use promo code `launch10`)
-4. **Verify recipients** by adding audiences
+4. **Add audiences** (new accounts get a `me` audience with your email)
 5. **Send your first alert**
 
 **Pricing**: SMS at $0.025/part, Email at $0.001/email. No monthly fees, no minimums.

@@ -6,6 +6,8 @@ sidebar_position: 3
 
 An **audience** is a named identifier (slug) that maps to verified contact methods. Think of it as a label you create (like `"joe"`, `"oncall"`, or `"dev-team"`) that you reference when sending alerts through the API.
 
+New accounts get an audience named `me` with your signup email (SMS requires adding a phone to `me` or creating another audience).
+
 **Important:** An audience is:
 - A **slug/identifier** (string) that you choose
 - **Not** a user ID, email address, or phone number

@@ -160,7 +160,6 @@ notifox send [flags]
 
 - Specifies which audience should receive the alert
 - Audience names are configured in your Notifox account
-- Common examples: `oncall`, `platform`, `ops`, `mathis`
 - Can be set via `NOTIFOX_AUDIENCE` environment variable
 - Flag value overrides environment variable
 

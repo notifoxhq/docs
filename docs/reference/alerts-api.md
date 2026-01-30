@@ -27,7 +27,7 @@ The request body must be valid JSON containing:
   * The name of the audience to send the alert to
   * Must match a verified audience name in your account
   * Case-sensitive (e.g., `"joe"` and `"Joe"` are different audiences)
-  * **Note:** Audiences must be created and verified in the [Notifox console](https://console.notifox.com/?view=audiences) before you can send alerts to them. There is no API endpoint for creating or managing audiences.
+  * **Note:** Audiences are created in the [Notifox console](https://console.notifox.com/?view=audiences) (new accounts get a `me` audience with your signup email). There is no API endpoint for creating or managing audiences.
 * `alert` (string, required)
   * The message text you want to send
   * Cannot be empty
