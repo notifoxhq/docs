@@ -31,7 +31,7 @@ curl -X POST https://api.notifox.com/alert \
 
 ## Getting Started
 
-1. **Sign up** at [console.notifox.com](https://console.notifox.com)
+1. **Sign up** at [notifox.com](https://api.console.notifox.com/login)
 2. **Get your API token** from the dashboard
 3. **Add funds** to your account (or use promo code `launch10`)
 4. **Add audiences** (new accounts get a `me` audience with your email)
