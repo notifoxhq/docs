@@ -7,3 +7,13 @@ announcement:
   label: Announcement
   permalink: /blog/tags/announcement
   description: Important announcements and news
+
+channel:
+  label: Channel
+  permalink: /blog/tags/channel
+  description: Channel-related announcements and updates
+
+audience:
+  label: Audience
+  permalink: /blog/tags/audience
+  description: Audience-related announcements and updates
