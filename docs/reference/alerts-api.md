@@ -241,17 +241,17 @@ response = client.send_alert(audience="joe", alert="Detailed report...", channel
 ```go
 import "github.com/notifoxhq/notifox-go"
 
-client, _ := notifox.NewClientFromEnv()
+client, _ := notifox.NewClient()
 
 // SMS
-resp, err := client.SendAlertWithOptions(ctx, notifox.AlertRequest{
+resp, err := client.SendAlert(ctx, notifox.AlertRequest{
     Audience: "joe",
     Alert:    "Server is down!",
     Channel:  notifox.SMS,
 })
 
 // Email
-resp, err := client.SendAlertWithOptions(ctx, notifox.AlertRequest{
+resp, err := client.SendAlert(ctx, notifox.AlertRequest{
     Audience: "joe",
     Alert:    "Detailed report...",
     Channel:  notifox.Email,
