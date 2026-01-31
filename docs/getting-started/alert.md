@@ -159,14 +159,18 @@ import (
 )
 
 func main() {
-    client, _ := notifox.NewClientFromEnv() // Reads from NOTIFOX_API_KEY
+    client, _ := notifox.NewClient() // Reads from NOTIFOX_API_KEY
     ctx := context.Background()
     
-    // Send SMS (simpler method - defaults to SMS)
-    resp, _ := client.SendAlert(ctx, "joe", "Server is down!")
+    // Send SMS
+    resp, _ := client.SendAlert(ctx, notifox.AlertRequest{
+        Audience: "joe",
+        Alert:    "Server is down!",
+        Channel:  notifox.SMS,
+    })
     
-    // Send Email (requires SendAlertWithOptions to specify channel)
-    resp, _ := client.SendAlertWithOptions(ctx, notifox.AlertRequest{
+    // Send Email
+    resp, _ := client.SendAlert(ctx, notifox.AlertRequest{
         Audience: "joe",
         Alert:    "Detailed error report...",
         Channel:  notifox.Email,

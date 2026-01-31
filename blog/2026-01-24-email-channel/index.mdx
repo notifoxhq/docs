@@ -60,13 +60,13 @@ Here's a snippet of Go that does the same:
 ```go
 alert := "Critical system failure!"
 
-resp, err := client.SendAlertWithOptions(ctx, notifox.AlertRequest{
+resp, err := client.SendAlert(ctx, notifox.AlertRequest{
     Audience: "admin",
     Alert:    alert,
     Channel:  notifox.SMS, // SMS
 })
 
-resp, err := client.SendAlertWithOptions(ctx, notifox.AlertRequest{
+resp, err := client.SendAlert(ctx, notifox.AlertRequest{
     Audience: "admin",
     Alert:    alert,
     Channel:  notifox.Email, // Email

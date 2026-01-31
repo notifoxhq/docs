@@ -7,7 +7,7 @@ sidebar_position: 4
 Go SDK for [Notifox](https://notifox.com).
 
 **Package:** [github.com/notifoxhq/notifox-go](https://pkg.go.dev/github.com/notifoxhq/notifox-go)  
-**Version:** v0.1.5+
+**Version:** v0.1.6+
 
 ## Installation
 
@@ -32,13 +32,17 @@ import (
 
 func main() {
     // Reads from NOTIFOX_API_KEY environment variable
-    client, err := notifox.NewClientFromEnv()
+    client, err := notifox.NewClient()
     if err != nil {
         panic(err)
     }
 
     ctx := context.Background()
-    resp, err := client.SendAlert(ctx, "mike", "Database server is down!")
+    resp, err := client.SendAlert(ctx, notifox.AlertRequest{
+        Audience: "mike",
+        Alert:    "Database server is down!",
+        Channel:  notifox.SMS,
+    })
     if err != nil {
         panic(err)
     }
@@ -47,11 +51,9 @@ func main() {
 }
 ```
 
-**Note:** You can also use `notifox.NewClient("")` which is equivalent to `notifox.NewClientFromEnv()`.
+### Providing API Key via Options
 
-### Providing API Key Directly
-
-Alternatively, you can provide the API key directly:
+Use `NewClientWithOptions` when you need to set the API key or other options:
 
 ```go
 package main
@@ -63,13 +65,17 @@ import (
 )
 
 func main() {
-    client, err := notifox.NewClient("your_api_key_here")
+    client, err := notifox.NewClientWithOptions(notifox.WithAPIKey("your_api_key_here"))
     if err != nil {
         panic(err)
     }
 
     ctx := context.Background()
-    resp, err := client.SendAlert(ctx, "mike", "High CPU usage!")
+    resp, err := client.SendAlert(ctx, notifox.AlertRequest{
+        Audience: "mike",
+        Alert:    "High CPU usage!",
+        Channel:  notifox.SMS,
+    })
     if err != nil {
         panic(err)
     }
@@ -81,8 +87,8 @@ func main() {
 ### Configuration
 
 ```go
-client, err := notifox.NewClient(
-    "your_api_key",
+client, err := notifox.NewClientWithOptions(
+    notifox.WithAPIKey("your_api_key"),
     notifox.WithBaseURL("https://api.notifox.com"),
     notifox.WithTimeout(30*time.Second),
     notifox.WithMaxRetries(3),
@@ -101,13 +107,17 @@ import (
 )
 
 func main() {
-    client, err := notifox.NewClient("your_api_key")
+    client, err := notifox.NewClient()
     if err != nil {
         panic(err)
     }
 
     ctx := context.Background()
-    resp, err := client.SendAlert(ctx, "admin", "System is running low on memory")
+    resp, err := client.SendAlert(ctx, notifox.AlertRequest{
+        Audience: "admin",
+        Alert:    "System is running low on memory",
+        Channel:  notifox.SMS,
+    })
     if err != nil {
         switch e := err.(type) {
         case *notifox.NotifoxAuthenticationError:
@@ -155,20 +165,20 @@ fmt.Printf("Parts: %d, Cost: $%.3f, Encoding: %s\n",
     resp.Parts, resp.Cost, resp.Encoding)
 ```
 
-### Send Alert with Options
+### Send Alert (SMS and Email)
 
-Send alert with additional options:
+Always use `AlertRequest` to specify audience, channel, and message:
 
 ```go
 // Send via SMS
-resp, err := client.SendAlertWithOptions(ctx, notifox.AlertRequest{
+resp, err := client.SendAlert(ctx, notifox.AlertRequest{
     Audience: "admin",
     Alert:    "Critical system failure!",
     Channel:  notifox.SMS,
 })
 
 // Send via Email
-resp, err := client.SendAlertWithOptions(ctx, notifox.AlertRequest{
+resp, err := client.SendAlert(ctx, notifox.AlertRequest{
     Audience: "admin",
     Alert:    "Critical system failure!",
     Channel:  notifox.Email,
