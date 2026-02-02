@@ -19,4 +19,4 @@ New accounts get a `me` audience with your signup email; see [Creating an Audien
 ## Reference Documentation
 
 For more details about accounts and the data model:
-* [Data Model](/docs/reference/data-model) - Complete overview of accounts, API tokens, audiences, and alerts
+* [Data Model](/docs/reference/data-model) - Complete overview of accounts, API keys, audiences, and alerts

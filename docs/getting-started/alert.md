@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Sending an Alert
 
-Now that you have an account, API token, and verified audience, you're ready to send your first alert!
+Now that you have an account, API key, and verified audience, you're ready to send your first alert!
 
 ## What Are Alerts?
 
@@ -45,7 +45,7 @@ When sending an alert, you can specify the `channel` parameter:
 The easiest way to send your first alert is using the Interactive Send feature in the Notifox console:
 
 1. Navigate to the [Send](https://console.notifox.com/?view=send) tab in your Notifox console
-2. Select an API token from the dropdown
+2. Select an API key from the dropdown
 3. Choose an audience from the list of verified audiences
 4. Select a channel (SMS or Email)
 5. Type your alert message
@@ -59,7 +59,7 @@ This is perfect for testing and sending quick alerts without writing any code. T
 
 ```bash
 curl -X POST https://api.notifox.com/alert \
-  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "audience": "joe",
@@ -86,7 +86,7 @@ Response:
 
 ```bash
 curl -X POST https://api.notifox.com/alert \
-  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "audience": "joe",
@@ -131,7 +131,7 @@ If you're using Python or Go, you can use the Notifox SDKs for a simpler experie
 ```python
 import notifox
 
-client = notifox.NotifoxClient(api_key="your_api_token")
+client = notifox.NotifoxClient(api_key="your_api_key")
 
 # Send SMS
 response = client.send_alert(
