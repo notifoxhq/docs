@@ -1,7 +1,7 @@
 title = "gitleaks config"
 
 [allowlist]
-description = "Allowlist for documentation files with example tokens"
+description = "Allowlist for documentation files with example API keys"
 paths = [
   '''docs/.*\.md''',
   '''blog/.*\.md''',

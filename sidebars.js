@@ -27,7 +27,7 @@ const sidebars = {
       collapsed: false,
       items: [
         'getting-started/account',
-        'getting-started/api-token',
+        'getting-started/api-key',
         'getting-started/audience',
         'getting-started/adding-funds',
         'getting-started/alert',

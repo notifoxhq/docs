@@ -14,8 +14,8 @@ POST https://api.notifox.com/alert
 
 ## Headers
 
-* `Authorization`: `Bearer <your_api_token>` (required)
-  * Your API token must be prefixed with "Bearer " and a space
+* `Authorization`: `Bearer <your_api_key>` (required)
+  * Your API key must be prefixed with "Bearer " and a space
   * Example: `Authorization: Bearer 123e4567-e89b-12d3-a456-426614174000`
 * `Content-Type`: `application/json` (required)
 
@@ -53,7 +53,7 @@ The request body must be valid JSON containing:
 
 ```bash
 curl -X POST https://api.notifox.com/alert \
-  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "audience": "joe",
@@ -66,7 +66,7 @@ curl -X POST https://api.notifox.com/alert \
 
 ```bash
 curl -X POST https://api.notifox.com/alert \
-  -H "Authorization: Bearer YOUR_API_TOKEN" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "audience": "joe",
@@ -177,7 +177,7 @@ If you exceed these limits, you'll receive a `429 Too Many Requests` response.
 | Status Code | Description |
 |------------|-------------|
 | `400` | Bad Request - Invalid request format or validation failed |
-| `401` | Unauthorized - Invalid or missing API token |
+| `401` | Unauthorized - Invalid or missing API key |
 | `402` | Payment Required - Insufficient account balance |
 | `429` | Too Many Requests - Rate limit exceeded |
 | `500` | Internal Server Error - Server-side error occurred |
@@ -187,7 +187,7 @@ If you exceed these limits, you'll receive a `429 Too Many Requests` response.
 **Authentication (401)**
 | Message | Cause |
 |---------|-------|
-| `Unauthorized` | Missing, invalid, or expired API token |
+| `Unauthorized` | Missing, invalid, or expired API key |
 
 **Validation (400)**
 | Message | Cause |
@@ -227,7 +227,7 @@ Instead of making raw HTTP requests, you can use Notifox SDKs for your preferred
 ```python
 import notifox
 
-client = notifox.NotifoxClient(api_key="your_api_token")
+client = notifox.NotifoxClient(api_key="your_api_key")
 
 # SMS
 response = client.send_alert(audience="joe", alert="Server is down!", channel=notifox.SMS)

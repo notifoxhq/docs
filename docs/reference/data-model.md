@@ -6,7 +6,7 @@ sidebar_position: 1
 
 This document describes the core objects and concepts in Notifox and how they relate to each other.
 
-**This is the primary reference for understanding Notifox's object model.** It defines all core concepts including accounts, API tokens, audiences, alerts, and channels with precise types, formats, and relationships.
+**This is the primary reference for understanding Notifox's object model.** It defines all core concepts including accounts, API keys, audiences, alerts, and channels with precise types, formats, and relationships.
 
 ## Core Objects
 
@@ -15,28 +15,28 @@ Your Notifox account is the top-level container for all resources.
 
 **Properties:**
 - **Balance**: Prepaid balance in USD used to pay for alerts
-- **API Tokens**: Authentication credentials for API access (up to 10 per account)
+- **API Keys**: Authentication credentials for API access (up to 10 per account)
 - **Audiences**: Named contacts that can receive alerts (up to 15 per account)
 
 **Where to find it:** [Console Account page](https://console.notifox.com/?view=account)
 
-### API Token
-An API token (also called API key) is used to authenticate API requests.
+### API Key
+An API key is used to authenticate API requests.
 
 **Type:** String (secret, shown only once when created)
 
 **Format:** Alphanumeric string, typically 40+ characters
 
 **Properties:**
-- **Token ID**: Unique identifier (visible in dashboard)
-- **Created Date**: When the token was created
+- **Key ID**: Unique identifier (visible in dashboard)
+- **Created Date**: When the key was created
 - **Masked Value**: First and last few characters (for security)
 
-**Where to create:** [Console API Tokens page](https://console.notifox.com/?view=token)
+**Where to create:** [Console API Keys page](https://console.notifox.com/?view=key)
 
-**Usage:** Include in `Authorization: Bearer <token>` header for all API requests
+**Usage:** Include in `Authorization: Bearer <key>` header for all API requests
 
-**Limits:** Maximum of 10 API tokens per account
+**Limits:** Maximum of 10 API keys per account
 
 ### Audience
 An audience is a **named identifier (slug)** that maps to verified contact methods (at most one phone number and/or one email address).
@@ -128,14 +128,14 @@ A channel is the delivery method for an alert.
 
 ```
 Account
-├── API Tokens (1-10)
+├── API Keys (1-10)
 ├── Audiences (1-15)
 │   ├── Phone Number (0 or 1, verified)
 │   └── Email Address (0 or 1, verified)
 └── Balance (USD)
 
 Alert Request
-├── Uses: API Token (for authentication)
+├── Uses: API Key (for authentication)
 ├── Targets: Audience (by slug/identifier)
 ├── Delivers via: Channel (sms or email)
 └── Requires: Verified contact method matching channel
@@ -145,7 +145,7 @@ Alert Request
 
 1. **Create Account** → Get access to console
 2. **Add Funds** → Prepay balance for alerts
-3. **Create API Token** → Get authentication credential
+3. **Create API Key** → Get authentication credential
 4. **Create Audience** → Choose a slug/identifier (e.g., `"joe"`); new accounts get `me` with signup email
 5. **Verify Contact Methods** → Add and verify phone number and/or email
 6. **Send Alert** → Use API with audience slug, channel, and message
