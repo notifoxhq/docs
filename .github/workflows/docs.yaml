@@ -35,6 +35,8 @@ jobs:
 
       - name: Build docs
         run: npm run build
+        env:
+          CANONICAL_SITE_URL: https://docs.notifox.com
 
       - name: Deploy to S3
         run: |
