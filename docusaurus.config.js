@@ -54,22 +54,7 @@ const config = {
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Edit button configuration - links to GitHub for editing blog posts
-          editUrl: 'https://github.com/notifoxhq/docs/tree/main/',
-          // Show git history information (last updated date and author)
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -178,7 +163,7 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {href: 'https://notifox.com/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://console.notifox.com',
             label: 'Console',
@@ -237,7 +222,7 @@ const config = {
               },
               {
                 label: 'Blog',
-                to: '/blog',
+                href: 'https://notifox.com/blog',
               },
               {
                 label: 'GitHub',
