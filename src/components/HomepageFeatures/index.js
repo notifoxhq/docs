@@ -8,7 +8,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Send alerts via SMS or email with a single API call. Choose the right channel for each alert—SMS for urgent notifications, email for detailed reports.
+        Send alerts via SMS or email with a single API call. Choose the right channel for each alert: SMS for urgent notifications, email for detailed reports.
       </>
     ),
   },
@@ -26,7 +26,7 @@ const FeatureList = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        No carrier verification, no number leasing, no monthly fees. Pay only for what you send—$0.025 per SMS part, $0.001 per email.
+        No carrier verification, no number leasing, no monthly fees. Pay only for what you send: $0.025 per SMS part, $0.001 per email.
       </>
     ),
   },

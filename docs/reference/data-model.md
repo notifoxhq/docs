@@ -15,7 +15,7 @@ Your Notifox account is the top-level container for all resources.
 
 **Properties:**
 - **Balance**: Prepaid balance in USD used to pay for alerts
-- **API Keys**: Authentication credentials for API access (up to 10 per account)
+- **API Keys**: Authentication credentials for API access (up to 1,000 active keys per account)
 - **Audiences**: Named contacts that can receive alerts (up to 15 per account)
 
 **Where to find it:** [Console Account page](https://console.notifox.com/?view=account)
@@ -23,20 +23,28 @@ Your Notifox account is the top-level container for all resources.
 ### API Key
 An API key is used to authenticate API requests.
 
-**Type:** String (secret, shown only once when created)
+**Key types and formats**
 
-**Format:** Alphanumeric string, typically 40+ characters
+| Type | Prefix | Stored format | Use case |
+|------|--------|----------------|----------|
+| **Live** | `nf_live_` | 32-char secret (no prefix in DB) | Long-lived, production |
+| **Temp** | `nf_temp_` | 32-char secret (no prefix in DB) | Short-lived, testing (5 min or 10 sends) |
+| **Legacy** | (none) | UUID string | Pre-migration keys; supported indefinitely |
 
 **Properties:**
 - **Key ID**: Unique identifier (visible in dashboard)
-- **Created Date**: When the key was created
-- **Masked Value**: First and last few characters (for security)
+- **Name**: 1–128 characters; letters, numbers, hyphens, underscores only (`[A-Za-z0-9_-]+`). Unique per user (names can be reused after a key is deleted).
+- **Created date**: When the key was created
+- **Expiration**: Optional: Never, 30 days, 90 days, 1 year, or 2 years
+- **Masked value**: First and last few characters (for security); full key shown only once at creation
 
-**Where to create:** [Console API Keys page](https://console.notifox.com/?view=key)
+**Where to create:** [Console API Keys page](https://console.notifox.com/?view=key) for live keys. Temp keys are created only in the [Interactive Send](https://console.notifox.com/?view=send) menu.
 
-**Usage:** Include in `Authorization: Bearer <key>` header for all API requests
+**Usage:** Include in `Authorization: Bearer <key>` header for all API requests. Legacy keys are matched case-insensitively.
 
-**Limits:** Maximum of 10 API keys per account
+**Limits:**
+- Maximum of 1,000 active (non-deleted) API keys per account
+- Temp keys: 10 total alerts (SMS + email combined) per key; key also expires after 5 minutes
 
 ### Audience
 An audience is a **named identifier (slug)** that maps to verified contact methods (at most one phone number and/or one email address).
@@ -128,7 +136,7 @@ A channel is the delivery method for an alert.
 
 ```
 Account
-├── API Keys (1-10)
+├── API Keys (1–1,000 active)
 ├── Audiences (1-15)
 │   ├── Phone Number (0 or 1, verified)
 │   └── Email Address (0 or 1, verified)

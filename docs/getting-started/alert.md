@@ -8,12 +8,15 @@ Now that you have an account, API key, and verified audience, you're ready to se
 
 ## What Are Alerts?
 
-An **alert** is a message you send through the Notifox API to a specific audience via a chosen channel. 
+An **alert** is a message you send through the Notifox API to a specific audience via a chosen channel.
 
-**Alert Structure:**
-- **audience** (required): The audience identifier/slug (e.g., `"joe"`, `"oncall"`) - see [Creating an Audience](./audience.md)
-- **alert** (required): The message content (string)
-- **channel** (required): Either `"sms"` or `"email"` - the delivery method
+To send an alert, you answer three questions: **Who** (the audience), **How** (the channel), and **What** (the message). The API maps those to three required fields:
+
+| Question | API field | Meaning |
+|----------|-----------|---------|
+| **Who** | `audience` | The recipient: an audience slug (e.g. `"joe"`, `"oncall"`). See [Creating an Audience](./audience.md). |
+| **How** | `channel` | The delivery method: `"sms"` or `"email"`. |
+| **What** | `alert` | The message content (string). |
 
 Notifox supports two channels:
 
@@ -42,18 +45,18 @@ When sending an alert, you can specify the `channel` parameter:
 
 ### Using the Console (Easiest Way)
 
-The easiest way to send your first alert is using the Interactive Send feature in the Notifox console:
+The easiest way to send your first alert is using the Interactive Send feature in the Notifox console. You answer the same three questions (Who, How, What) and the console builds the API call for you:
 
 1. Navigate to the [Send](https://console.notifox.com/?view=send) tab in your Notifox console
-2. Select an API key from the dropdown
-3. Choose an audience from the list of verified audiences
-4. Select a channel (SMS or Email)
-5. Type your alert message
-6. Copy the generated curl command or use it as reference
+2. **Who:** Choose an Audience from the dropdown (e.g. `test`)
+3. **How:** Select a Channel (SMS or Email)
+4. **What:** Type your Alert message in the text area
+5. In **API Key**, click **Generate temporary key** to get a key valid for 5 minutes, or use the link to [create a live API key](https://console.notifox.com/?view=key) if you prefer
+6. Copy the **Generated Command** (the curl with `$NOTIFOX_API_KEY`) or use it as reference
 
-![Interactive Send](./images/interactive-send-1.png)
+![Interactive Send: audience, channel, alert, API key (temp or live), and generated curl command](./images/interactive-send-1.png)
 
-This is perfect for testing and sending quick alerts without writing any code. The console shows you the curl command, so you can copy it for use in your own scripts.
+This is perfect for testing and sending quick alerts without writing any code. The console shows you the curl command so you can copy it for use in your own scripts.
 
 ### Sending an SMS
 
