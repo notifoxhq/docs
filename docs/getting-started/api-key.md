@@ -9,53 +9,68 @@ An **API key** is a secret string used to authenticate all requests to the Notif
 **Important:** 
 - API keys are secrets: treat them like passwords
 - Each key is shown only once when created
-- You can create up to 10 API keys per account
-- Keys don't expire unless you delete them
+- You can create up to 1,000 active API keys per account
+- Keys can have an optional expiration (Never, 30 days, 90 days, 1 year, or 2 years)
+
+## Key types
+
+| Type | Prefix | Use case |
+|------|--------|----------|
+| **Live** | `nf_live_` | Long-lived production keys. Example: `nf_live_R8iNrYG2P6lgRdZkjFm3Mdk1c8uvDcNE` |
+| **Temp** | `nf_temp_` | Short-lived keys for testing. Valid for 5 minutes or 10 sends (SMS + email combined), whichever comes first. **Only created in the [Interactive Send](https://console.notifox.com/?view=send) menu**; you cannot create them from the API Keys tab. |
+| **Legacy** | (none) | Pre-migration keys (UUID format). Still supported indefinitely; we recommend replacing them with new live keys when convenient. |
 
 ## Creating an API key
 
-To create an API key, visit the [API Keys](https://console.notifox.com/?view=key) tab in the Notifox console.
+To create a **live** API key, visit the [API Keys](https://console.notifox.com/?view=key) tab in the Notifox console. If you don't have any keys yet, you'll see an empty state with a **+ Create Key** button.
 
-Then click on "Create API Key" to generate an API Key.
+![API Keys empty state with Create Key button](./images/api-key-1.png)
 
-![create key](./images/api-key-2.png)
+Click **+ Create Key** to open the creation modal. Enter a **Key Name** (e.g. `production`, `ci-pipeline`, `local-dev`; letters, numbers, hyphens, and underscores only, max 128 characters) and optionally choose an **Expiration** (Never, 30 days, 90 days, 1 year, or 2 years). Then click **Create Key**.
 
-This will generate an API key for you.
+![Create API Key modal with key name and expiration](./images/api-key-2.png)
+
+The console will generate a key and show it once in the "API key created" dialog.
 
 :::danger
 Do <strong>NOT</strong> share this key with anyone. Anyone with access to this key can use the API to send alerts on your behalf.
 :::
 
-Copy the key by pressing the copy icon on the right. Once you press the blue button, you will not be able to retrieve the API key from the Notifox dashboard, so save it in a secure location.
+Copy the key using the copy icon next to **YOUR API KEY**, or use **Copy Shell format** to copy the full `export NOTIFOX_API_KEY="..."` command. **Copy it now. We won't show it again.** Once you leave this dialog, the full key cannot be retrieved from the dashboard, so save it in a secure location.
 
-![generated key](./images/api-key-3.png)
+![API key created dialog with copy options and Shell/Kubernetes/Base64 formats](./images/api-key-3.png)
 
-You are now ready to use your Notifox API key!
+You can then click **View key details** to see the key in your list (masked) or **Done** to close. You're ready to use your Notifox API key.
 
 :::tip
-All Notifox SDKs try reading from the `NOTIFOX_API_KEY` environment variable when initializing the client. Set the environment variable so you don't have to hard-code the API key!
+The Notifox CLI and SDKs try reading from the `NOTIFOX_API_KEY` environment variable when initializing the client. Use **Copy Shell format** in the dialog or set the variable yourself so you don't have to hard-code the API key.
 
 ```bash
 export NOTIFOX_API_KEY='your-key-here'
 ```
 :::
 
-## Viewing Your API Keys
+## Viewing your API keys
 
-You can view all your existing API keys in the [API Keys](https://console.notifox.com/?view=key) tab. For security reasons, keys are displayed in a masked format (showing only the first and last few characters). The full key is only shown once when you create it.
+You can view all your existing API keys in the [API Keys](https://console.notifox.com/?view=key) tab. Click a key to open **API Key Details**, where you can see its name, type (e.g. Live), created and expiration dates, last used, and alerts sent. For security, the key value is shown only in masked form (first and last few characters); the full key is shown only once when you create it.
 
-## Key Limits
+## Key limits
 
-* **Maximum of 10 API keys per account**: If you need to create a new key and have reached the limit, delete an unused key first. If your use-case requires a higher limit, please contact [support@notifox.com](mailto:support@notifox.com).
-* Each key can be used independently: Create separate keys for different applications or environments (production, staging, development).
+| Limit | Value | Scope |
+|-------|-------|--------|
+| API keys per account | 1,000 | Active (non-deleted) keys |
+| Temp key sends | 10 | Total alerts (SMS + email) per temp key |
+| Key name length | 1–128 characters | Letters, numbers, hyphens, underscores only (`[A-Za-z0-9_-]+`) |
+
+If you reach the 1,000-key limit, delete unused keys first or contact [support@notifox.com](mailto:support@notifox.com) if you need a higher limit. Each key can be used independently; use separate keys for different applications or environments (production, staging, development).
 
 ## Deleting an API key
 
-If you want to delete an API key (because it was compromised, or no longer needed), go to the [API Keys](https://console.notifox.com/?view=key) tab in the Notifox console and click on the trash icon in the row of the key you want to delete.
+To delete an API key (for example because it was compromised or no longer needed), open the [API Keys](https://console.notifox.com/?view=key) tab, click the key to open **API Key Details**, then click the red **Delete API Key** button at the bottom of the page.
 
 Keep in mind that once you delete an API key, it can no longer be used. Any requests made with a deleted API key will return a `401 Not Authorized` status code.
 
-![delete api key](./images/api-key-4.png)
+![API Key Details page with Delete API Key button](./images/api-key-4.png)
 
 ## Best Practices
 

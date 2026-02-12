@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # Create an account
 
-To create an account, go to [https://notifox.com](https://notifox.com) and click on "Create your Account".
+To create an account, go to [https://notifox.com](https://notifox.com) and click on "Get Started".
 
-![Create your account](./images/account-1.png)
+![Get Started](./images/account-1.png)
 
 You can create an account using your Github account by clicking the "Continue with GitHub" button. If you go this route, to sign-in next time, also click on the "Continue with GitHub" button.
 

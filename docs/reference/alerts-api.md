@@ -15,8 +15,12 @@ POST https://api.notifox.com/alert
 ## Headers
 
 * `Authorization`: `Bearer <your_api_key>` (required)
-  * Your API key must be prefixed with "Bearer " and a space
-  * Example: `Authorization: Bearer 123e4567-e89b-12d3-a456-426614174000`
+  * Your API key must be prefixed with `"Bearer "` and a space
+  * Supported key formats:
+    * **Live:** `nf_live_` + 32-char secret (e.g. `nf_live_R8iNrYG2P6lgRdZkjFm3Mdk1c8uvDcNE`)
+    * **Temp:** `nf_temp_` + 32-char secret (from Interactive Send; valid 5 min or 10 sends)
+    * **Legacy:** UUID string (case-insensitive)
+  * Example: `Authorization: Bearer nf_live_R8iNrYG2P6lgRdZkjFm3Mdk1c8uvDcNE`
 * `Content-Type`: `application/json` (required)
 
 ## Request Body
@@ -176,22 +180,30 @@ If you exceed these limits, you'll receive a `429 Too Many Requests` response.
 
 | Status Code | Description |
 |------------|-------------|
-| `400` | Bad Request - Invalid request format or validation failed |
-| `401` | Unauthorized - Invalid or missing API key |
+| `400` | Bad Request - Invalid request format, validation failed, or API key limit reached |
+| `401` | Unauthorized - Invalid, missing, or expired API key |
 | `402` | Payment Required - Insufficient account balance |
+| `403` | Forbidden - Temp key send limit exceeded |
 | `429` | Too Many Requests - Rate limit exceeded |
 | `500` | Internal Server Error - Server-side error occurred |
 
 ### Error Messages by Category
 
 **Authentication (401)**
-| Message | Cause |
-|---------|-------|
-| `Unauthorized` | Missing, invalid, or expired API key |
+| Message / Body | Cause |
+|----------------|-------|
+| `Unauthorized` | Missing or invalid API key |
+| `{"error": "key expired"}` | API key has passed its expiration date |
+
+**Forbidden (403)**
+| Message / Body | Cause |
+|----------------|-------|
+| `{"error": "temp key limit exceeded"}` | Temp key has already been used for 10 alerts (SMS + email combined) |
 
 **Validation (400)**
-| Message | Cause |
-|---------|-------|
+| Message / Body | Cause |
+|----------------|-------|
+| `{"error": "API key limit of 1000 reached"}` | Account has 1,000 active keys; delete one or contact support before creating another |
 | `alert message cannot be empty` | The `alert` field is missing or empty |
 | `alert message cannot be empty or only whitespace` | Message contains only spaces/newlines (email) |
 | `alert message cannot be greater than 765 characters` | SMS message exceeds 765 chars (5 parts maximum) |
@@ -209,9 +221,9 @@ If you exceed these limits, you'll receive a `429 Too Many Requests` response.
 | `insufficient balance` | Account balance is too low for this message |
 
 **Rate Limiting (429)**
-| Message | Cause |
-|---------|-------|
-| `rate limit exceeded` | Too many requests in the rate limit window |
+| Message / Body | Cause |
+|----------------|-------|
+| `{"error": "rate limit exceeded"}` | Too many requests in the rate limit window |
 
 **Server Errors (500)**
 | Message | Cause |
