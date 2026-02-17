@@ -48,6 +48,7 @@ const sidebars = {
       collapsed: false,
       items: [
         'tools/cli',
+        'tools/github-action',
       ],
     },
     {
